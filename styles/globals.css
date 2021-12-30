@@ -23,3 +23,8 @@ a {
   max-width: 1280px;
   margin: 0 auto;
 }
+
+.modal {
+  width: 550px;
+  height: 310px;
+}
