@@ -1,5 +1,6 @@
 import * as React from "react"
 
+import { linksArray } from "../../data/linksArray"
 import TopBar from "../Navigation/TopBar"
 import NavBar from "../Navigation/NavBar"
 import ProfileCard from "../Cards/ProfileCard/ProfileCard"
@@ -7,44 +8,6 @@ import ProfileCard from "../Cards/ProfileCard/ProfileCard"
 interface IPropTypes {
   children: React.ReactNode
 }
-
-const linksArray = [
-  {
-    title: "Home",
-    url: "/",
-    Icon: () => {
-      return
-    },
-  },
-  {
-    title: "Friends",
-    url: "/friends",
-    Icon: () => {
-      return
-    },
-  },
-  {
-    title: "Photos",
-    url: "/photos",
-    Icon: () => {
-      return
-    },
-  },
-  {
-    title: "Chat",
-    url: "/chat",
-    Icon: () => {
-      return
-    },
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    Icon: () => {
-      return
-    },
-  },
-]
 
 const Layout = ({ children }: IPropTypes) => {
   return (

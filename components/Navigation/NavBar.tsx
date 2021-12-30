@@ -21,10 +21,11 @@ const NavBar = ({ linksArray }: IPropTypes) => {
                 <Link href={url}>
                   {/* Make active link text bold */}
                   <a
-                    className={`block p-4 border-b border-gray-300 ${
+                    className={`block p-4 border-b border-gray-300 flex align-items justify-content gap-x-4 ${
                       router.pathname === url && "font-bold"
                     } `}
                   >
+                    {Icon}
                     {title}
                   </a>
                 </Link>
