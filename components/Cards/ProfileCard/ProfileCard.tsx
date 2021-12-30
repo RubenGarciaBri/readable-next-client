@@ -18,10 +18,10 @@ const ProfileCard = ({ name, userName }: IPropTypes) => {
           src={profilePic}
           width={55}
           height={55}
-          className="mr-12 rounded-full shadow-inner"
+          className="rounded-full shadow-inner"
         />
         <div className="ml-4">
-          <span className="block -mb-1 font-bold">{name}</span>
+          <span className="block -mb-1 font-semibold">{name}</span>
           <span className="text-sm font-light text-gray-600">{userName}</span>
         </div>
       </div>

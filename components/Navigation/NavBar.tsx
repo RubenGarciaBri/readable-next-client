@@ -17,12 +17,12 @@ const NavBar = ({ linksArray }: IPropTypes) => {
         {linksArray &&
           linksArray.map(({ title, url, Icon }) => {
             return (
-              <li className="">
+              <li>
                 <Link href={url}>
-                  {/* Make active link text bold */}
+                  {/* Make active link text semibold */}
                   <a
                     className={`block p-4 border-b border-gray-300 flex align-items justify-content gap-x-4 ${
-                      router.pathname === url && "font-bold"
+                      router.pathname === url && "font-semibold"
                     } `}
                   >
                     {Icon}
