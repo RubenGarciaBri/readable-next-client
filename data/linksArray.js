@@ -17,8 +17,8 @@ export const linksArray = [
     Icon: <FaCamera size={20} />,
   },
   {
-    title: "Chat",
-    url: "/chat",
+    title: "Messaging",
+    url: "/messaging",
     Icon: <FaComment size={20} />,
   },
   {

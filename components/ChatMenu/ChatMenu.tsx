@@ -12,12 +12,12 @@ interface IPropTypes {
 const ChatMenu = ({ contacts }: IPropTypes) => {
   return (
     <CardBase>
-      <ul className="">
+      <ul>
         {contacts &&
-          contacts.map(({ name, userName, profilePicture }) => {
+          contacts.map(({ name, userName, profilePicture }, index) => {
             return (
-              <li>
-                <Link href="/chat">
+              <li key={index}>
+                <Link href="/messaging">
                   {/* Make active link text bold */}
                   <a className="flex block p-4 border-b border-gray-300 align-items justify-content gap-x-4">
                     <Image

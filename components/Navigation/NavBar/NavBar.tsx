@@ -2,7 +2,7 @@ import * as React from "react"
 
 import Link from "next/link"
 import { useRouter } from "next/router"
-import CardBase from "../Cards/CardBase"
+import CardBase from "../../Cards/CardBase"
 
 interface IPropTypes {
   // TODO: Make more specific
@@ -15,9 +15,9 @@ const NavBar = ({ linksArray }: IPropTypes) => {
     <CardBase>
       <ul className="">
         {linksArray &&
-          linksArray.map(({ title, url, Icon }) => {
+          linksArray.map(({ title, url, Icon }, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Link href={url}>
                   {/* Make active link text semibold */}
                   <a

@@ -6,7 +6,7 @@ interface IPropTypes {
 
 const CardBase = ({ children }: IPropTypes) => {
   return (
-    <div className="p-6 bg-gray-200 rounded-xl drop-shadow-sm">{children}</div>
+    <div className="p-6 bg-gray-200 rounded-xl drop-shadow">{children}</div>
   )
 }
 
