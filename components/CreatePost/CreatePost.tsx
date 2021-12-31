@@ -4,7 +4,7 @@ import profilePic from "../../public/img/sample-profile.jpeg"
 import Image from "next/image"
 import CardBase from "../Cards/CardBase"
 
-const CreatePost = () => {
+const CreatePost = ({ handleClick }: any) => {
   return (
     <CardBase>
       <div className="flex align-items">
@@ -18,6 +18,7 @@ const CreatePost = () => {
           type="text"
           placeholder="Create a new post"
           className="w-full pl-6 ml-6 rounded-full"
+          onClick={handleClick}
         />
       </div>
     </CardBase>

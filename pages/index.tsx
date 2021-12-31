@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <div>
       {/* <button onClick={() => setShowModal(true)}>Open Modal</button> */}
       <Layout>
-        <CreatePost />
+        <CreatePost handleClick={() => setShowModal(true)} />
       </Layout>
       <CreatePostModal onClose={() => setShowModal(false)} show={showModal} />
     </div>

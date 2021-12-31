@@ -63,7 +63,7 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
           </div>
           <textarea
             placeholder="What's on your mind?"
-            className="w-full py-5 outline-none resize-none"
+            className="w-full py-5 resize-none"
             onChange={e => setText(e.target.value)}
             value={text}
           ></textarea>
