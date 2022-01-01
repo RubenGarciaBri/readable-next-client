@@ -10,8 +10,11 @@ interface IPropTypes {
 }
 
 const ProfilePicture = ({ profilePic, isOnline }: IPropTypes) => {
+  // TODO: Temporary placeholder, remove and use actual username
+  const userName = "ruben_GB"
+  
   return (
-    <Link href="/profile">
+    <Link href={`/profile/${userName}`}>
       <div className="relative cursor-pointer">
         <Image
           src={profilePic}
