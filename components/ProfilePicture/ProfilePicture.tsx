@@ -11,7 +11,7 @@ interface IPropTypes {
 
 const ProfilePicture = ({ profilePic, isOnline }: IPropTypes) => {
   // TODO: Temporary placeholder, remove and use actual username
-  const userName = "ruben_GB"
+  const userName = "Ruben Garcia"
   
   return (
     <Link href={`/profile/${userName}`}>
