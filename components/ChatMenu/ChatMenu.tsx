@@ -27,8 +27,10 @@ const ChatMenu = ({ contacts }: IPropTypes) => {
                       className="rounded-full shadow-inner"
                     />
                     <div>
-                      <span className="block -mb-1 font-semibold">{name}</span>
-                      <span className="text-sm font-light text-gray-600">
+                      <span className="block -mb-1 text-sm font-semibold">
+                        {name}
+                      </span>
+                      <span className="text-xs font-light text-gray-600">
                         {userName}
                       </span>
                     </div>

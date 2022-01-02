@@ -4,7 +4,7 @@ import ReactDOM from "react-dom"
 import { FaTimes } from "react-icons/fa"
 import { modalButtons } from "../../../data/modalButtons"
 import profilePic from "../../../public/img/sample-profile.jpeg"
-import { useOnClickOutside } from "../../hooks/useOnClickOutside"
+import { useOnClickOutside } from "../../../hooks/useOnClickOutside"
 import Image from "next/image"
 
 interface IPropTypes {

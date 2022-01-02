@@ -9,9 +9,7 @@ import ProfileMainCard from "../../components/Profile/ProfileMainCard"
 
 const ProfilePage = () => {
   const router = useRouter()
-  const { name } = router.query
-
-  console.log(name)
+  const { userName } = router.query
 
   return (
     <div className="main-container">
@@ -20,7 +18,7 @@ const ProfilePage = () => {
         <div className="flex justify-center">
           <ProfileMainCard
             profilePic={profilePic}
-            name={name}
+            name={"Ruben"}
             friendsNumber={84}
             location="London, UK"
           />

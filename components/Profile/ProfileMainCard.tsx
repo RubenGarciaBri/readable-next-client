@@ -1,10 +1,10 @@
 import * as React from "react"
-import { FaUserPlus } from "react-icons/fa"
 import Image from "next/image"
+import AddFriendButton from "../Buttons/AddFriendButtonSmall/AddFriendButtonSmall"
 
 interface IPropTypes {
   profilePic: StaticImageData
-  // TODO: Check undefined and try to make as specific as possible 
+  // TODO: Check undefined and try to make as specific as possible
   name: string | string[] | undefined
   friendsNumber: number
   location: string
@@ -17,7 +17,7 @@ const ProfileMainCard = ({
   location,
 }: IPropTypes) => {
   return (
-    <div className="relative flex items-center w-1/3 p-8 bg-white rounded-xl drop-shadow-lg">
+    <div className="relative flex items-center p-8 bg-white profile-main-card rounded-xl drop-shadow-lg">
       <Image
         src={profilePic}
         width={100}
@@ -29,9 +29,7 @@ const ProfileMainCard = ({
         <span className="block text-gray-600">{friendsNumber} friends</span>
         <span>{location}</span>
       </div>
-      <button className="absolute p-4 text-white bg-blue-500 rounded-full shadow-inner bottom-3 right-4">
-        <FaUserPlus size={18} />
-      </button>
+      <AddFriendButton />
     </div>
   )
 }
