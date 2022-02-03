@@ -30,7 +30,7 @@ const ChatMenu = ({ contacts }: IPropTypes) => {
                       <span className="block -mb-1 text-sm font-semibold">
                         {name}
                       </span>
-                      <span className="text-xs font-light text-gray-600">
+                      <span className="text-xs  text-gray-600">
                         {userName}
                       </span>
                     </div>

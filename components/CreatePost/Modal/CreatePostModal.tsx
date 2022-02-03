@@ -58,7 +58,7 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
             />
             <div className="ml-4">
               <span className="block -mb-1 font-semibold">Ruben Garcia</span>
-              <span className="text-sm font-light text-gray-600">@rubenGB</span>
+              <span className="text-sm text-gray-600">@rubenGB</span>
             </div>
           </div>
           <textarea
@@ -78,7 +78,7 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
                   )
                 })}
             </ul>
-            <button className="px-12 py-3 font-semibold bg-gray-300 rounded-full">
+            <button className="px-12 py-3 font-semibold text-white rounded-full bg-primary-500">
               Post
             </button>
           </div>

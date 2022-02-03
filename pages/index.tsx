@@ -11,12 +11,12 @@ const Home: NextPage = () => {
   const [showModal, setShowModal] = React.useState(false)
 
   return (
-    <div>
+    <>
       {/* <button onClick={() => setShowModal(true)}>Open Modal</button> */}
       <Layout>
         <CreatePost handleClick={() => setShowModal(true)} />
         {posts &&
-          posts.map(({ name, body, userName, profilePicture, postId }) => {
+          posts.map(({ name, body, userName, profilePicture, postId, timestamp, likesCount, commentsCount }) => {
             return (
               <Post
                 name={name}
@@ -24,12 +24,15 @@ const Home: NextPage = () => {
                 body={body}
                 profilePicture={profilePicture}
                 postId={postId}
+                timestamp={timestamp}
+                likesCount={likesCount}
+                commentsCount={commentsCount}
               />
             )
           })}
       </Layout>
       <CreatePostModal onClose={() => setShowModal(false)} show={showModal} />
-    </div>
+    </>
   )
 }
 

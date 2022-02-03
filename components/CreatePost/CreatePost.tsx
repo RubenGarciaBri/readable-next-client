@@ -17,7 +17,7 @@ const CreatePost = ({ handleClick }: any) => {
         <input
           type="text"
           placeholder="Create a new post"
-          className="w-full pl-6 ml-6 text-sm rounded-full"
+          className="w-full pl-6 ml-6 text-sm rounded-full placeholder:text-gray-500 bg-gray-150"
           onClick={handleClick}
         />
       </div>

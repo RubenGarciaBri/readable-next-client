@@ -22,7 +22,7 @@ const NavBar = ({ linksArray }: IPropTypes) => {
                   {/* Make active link text semibold */}
                   <a
                     className={`block p-4 border-b border-gray-300 flex align-items justify-content gap-x-4 ${
-                      router.pathname === url && "font-semibold"
+                      router.pathname === url && "font-semibold text-primary-500"
                     } `}
                   >
                     {Icon}

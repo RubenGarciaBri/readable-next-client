@@ -13,7 +13,7 @@ interface IPropTypes {
 
 const Layout = ({ children }: IPropTypes) => {
   return (
-    <>
+    <div className="min-h-screen bg-gray-150">
       <TopBar />
       <div className="px-4 main-container">
         <div className="flex justify-between mt-8 alig-center gap-x-8">
@@ -27,7 +27,7 @@ const Layout = ({ children }: IPropTypes) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
