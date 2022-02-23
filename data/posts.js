@@ -17,7 +17,7 @@ export const posts = [
     name: "David Williams",
     userName: "@ksm12",
     location: "San Francisco",
-    body: "Going on holidays tomorrow night to the Greek Islands, can't wait!!",
+    body: "Going on holidays tomorrow night to the Greek Islands, can't wait!",
     profilePicture: userPic2,
     postId: "abc0124",
     timestamp: "Yesterday at 16:49",
