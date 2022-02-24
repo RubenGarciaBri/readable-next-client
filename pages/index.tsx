@@ -16,20 +16,31 @@ const Home: NextPage = () => {
       <Layout>
         <CreatePost handleClick={() => setShowModal(true)} />
         {posts &&
-          posts.map(({ name, body, userName, profilePicture, postId, timestamp, likesCount, commentsCount }) => {
-            return (
-              <Post
-                name={name}
-                userName={userName}
-                body={body}
-                profilePicture={profilePicture}
-                postId={postId}
-                timestamp={timestamp}
-                likesCount={likesCount}
-                commentsCount={commentsCount}
-              />
-            )
-          })}
+          posts.map(
+            ({
+              name,
+              body,
+              userName,
+              profilePicture,
+              postId,
+              timestamp,
+              likesCount,
+              commentsCount,
+            }) => {
+              return (
+                <Post
+                  name={name}
+                  userName={userName}
+                  body={body}
+                  profilePicture={profilePicture}
+                  postId={postId}
+                  timestamp={timestamp}
+                  likesCount={likesCount}
+                  commentsCount={commentsCount}
+                />
+              )
+            }
+          )}
       </Layout>
       <CreatePostModal onClose={() => setShowModal(false)} show={showModal} />
     </>
