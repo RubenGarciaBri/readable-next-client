@@ -26,13 +26,15 @@ const FriendsPage = () => {
               {contacts &&
                 contacts
                   .slice(2, 5)
-                  .map(({ profilePicture, name, userName }) => {
+                  .map(({ profilePicture, name, userName }, index) => {
                     return (
-                      <FriendsCardRequest
-                        profilePicture={profilePicture}
-                        name={name}
-                        userName={userName}
-                      />
+                      <div key={userName}>
+                        <FriendsCardRequest
+                          profilePicture={profilePicture}
+                          name={name}
+                          userName={userName}
+                        />
+                      </div>
                     )
                   })}
             </div>

@@ -45,7 +45,7 @@ const Post = ({
           <li className="flex justify-between items-align">
             <div className="flex items-align">
               <div>
-                <span className="inline-block p-1 bg-primary-500 rounded-full">
+                <span className="inline-block p-1 rounded-full bg-primary-500">
                   <FaThumbsUp size={9} className="text-white" />
                 </span>
               </div>

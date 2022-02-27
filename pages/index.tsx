@@ -17,27 +17,32 @@ const Home: NextPage = () => {
         <CreatePost handleClick={() => setShowModal(true)} />
         {posts &&
           posts.map(
-            ({
-              name,
-              body,
-              userName,
-              profilePicture,
-              postId,
-              timestamp,
-              likesCount,
-              commentsCount,
-            }) => {
+            (
+              {
+                name,
+                body,
+                userName,
+                profilePicture,
+                postId,
+                timestamp,
+                likesCount,
+                commentsCount,
+              },
+              index
+            ) => {
               return (
-                <Post
-                  name={name}
-                  userName={userName}
-                  body={body}
-                  profilePicture={profilePicture}
-                  postId={postId}
-                  timestamp={timestamp}
-                  likesCount={likesCount}
-                  commentsCount={commentsCount}
-                />
+                <div key={index + name}>
+                  <Post
+                    name={name}
+                    userName={userName}
+                    body={body}
+                    profilePicture={profilePicture}
+                    postId={postId}
+                    timestamp={timestamp}
+                    likesCount={likesCount}
+                    commentsCount={commentsCount}
+                  />
+                </div>
               )
             }
           )}

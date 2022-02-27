@@ -70,9 +70,9 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
           <div className="flex items-center justify-between">
             <ul className="flex gap-x-4">
               {modalButtons &&
-                modalButtons.map(({ Icon }) => {
+                modalButtons.map(({ Icon }, index) => {
                   return (
-                    <li className="mt-1.5">
+                    <li key={index} className="mt-1.5">
                       <button>{Icon}</button>
                     </li>
                   )
