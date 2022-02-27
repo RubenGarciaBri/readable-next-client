@@ -5,29 +5,14 @@ import Link from "next/link"
 import { FaRegThumbsUp, FaRegComment, FaThumbsUp } from "react-icons/fa"
 
 interface IPropTypes {
-  name: string
-  userName: string
-  profilePicture: StaticImageData
-  body: string
-  postId: string
-  timestamp: string
-  likesCount: number
-  commentsCount: number
+  id: string
 }
 
-const Post = ({
-  name,
-  userName,
-  profilePicture,
-  body,
-  postId,
-  timestamp,
-  likesCount,
-  commentsCount,
-}: IPropTypes) => {
+const Post = ({ id }: IPropTypes) => {  
   return (
     <div className="px-6 pt-6 pb-4 my-6 bg-white drop-shadow rounded-xl">
-      <div className="flex">
+      {id}
+      {/* <div className="flex">
         <Image
           src={profilePicture}
           width={45}
@@ -74,7 +59,7 @@ const Post = ({
           </button>
         </li>
       </ul>
-      <div></div>
+      <div></div> */}
     </div>
   )
 }

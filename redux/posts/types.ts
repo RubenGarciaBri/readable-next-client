@@ -1,0 +1,2 @@
+export const SET_POST = "SET_POST"
+export const STOP_LOADING_POSTS = "STOP_LOADING_POSTS"
