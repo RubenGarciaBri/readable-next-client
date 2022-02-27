@@ -2,30 +2,44 @@ import * as React from "react"
 
 import Image from "next/image"
 import Link from "next/link"
+import TimeAgo from "react-timeago"
 import { FaRegThumbsUp, FaRegComment, FaThumbsUp } from "react-icons/fa"
+
+import { useDispatch, useSelector } from "react-redux"
+// Selectors
+import { getPostByIdSelector } from "../../redux/posts/selectors"
 
 interface IPropTypes {
   id: string
 }
 
-const Post = ({ id }: IPropTypes) => {  
+const Post = ({ id }: IPropTypes) => {
+  const dispatch = useDispatch()
+
+  const { username, body, commentIds, likeIds, timestamp } = useSelector(
+    getPostByIdSelector(id)
+  )
+
   return (
     <div className="px-6 pt-6 pb-4 my-6 bg-white drop-shadow rounded-xl">
-      {id}
-      {/* <div className="flex">
-        <Image
+      <div className="flex">
+        {/* <Image
           src={profilePicture}
           width={45}
           height={45}
           className="rounded-full shadow-inner"
-        />
+        /> */}
         <div className="ml-4">
-          <span className="block -mb-1 font-semibold">{name}</span>
-          <span className="text-sm text-gray-600">{timestamp}</span>
+          <Link href={`/profile/${username}`}>
+            <a className="block -mb-1 font-semibold">{username}</a>
+          </Link>
+          <span className="text-sm text-gray-600">
+            <TimeAgo date={timestamp} />
+          </span>
         </div>
       </div>
       <p className="my-6 text-gray-600">{body}</p>
-      <div className="border-b border-gray-300 ">
+      <div className="border-b border-gray-300">
         <ul>
           <li className="flex justify-between items-align">
             <div className="flex items-align">
@@ -34,10 +48,12 @@ const Post = ({ id }: IPropTypes) => {
                   <FaThumbsUp size={9} className="text-white" />
                 </span>
               </div>
-              <span className="ml-1 text-sm text-gray-600">{likesCount}</span>
+              <span className="ml-1 text-sm text-gray-600">
+                {likeIds?.length}
+              </span>
             </div>
             <span className="text-sm text-gray-600">
-              {commentsCount} comments
+              {commentIds?.length} comments
             </span>
           </li>
         </ul>
@@ -59,7 +75,6 @@ const Post = ({ id }: IPropTypes) => {
           </button>
         </li>
       </ul>
-      <div></div> */}
     </div>
   )
 }

@@ -11,7 +11,10 @@ export default async function handler(
 ) {
   const snapshot = await getDocs(collection(db, "/posts"))
   const posts: any[] = []
-  await snapshot.forEach(post => posts.push({ id: post.id, data: post.data() }))
+  await snapshot.forEach(post => {
+    const data = post.data()
+    posts.push({ id: post.id, data: { ...data, timestamp: data.timestamp.toDate() } })
+  })
 
   res.status(200).json(posts)
 }

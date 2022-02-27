@@ -10,7 +10,9 @@ const postsReducer = (state = initialState, action: any) => {
           ...state.byId,
           [action.payload.id]: action.payload.data,
         },
-        allIds: state.allIds.concat(action.payload.id),
+        allIds: !state.allIds.includes(action.payload.id)
+          ? state.allIds.concat(action.payload.id)
+          : state.allIds,
       }
 
     case STOP_LOADING_POSTS:
