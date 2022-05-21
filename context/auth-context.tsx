@@ -15,7 +15,7 @@ const AuthContext = React.createContext({
   //   isLoggedIn: Boolean,
 })
 
-const AuthProvider = (props: any) => {
+const AuthProvider = ({ children, ...props }: any) => {
   const [fetching, setFetching] = React.useState(true)
   const [accessToken, setAccessToken] = useLocalStorage(
     "access_token",
@@ -60,13 +60,15 @@ const AuthProvider = (props: any) => {
     )
   }
 
-  if (!accessToken) {
-    return <Login login={login} error={error} />
-  }
+  // if (!accessToken) {
+  //   return <Login login={login} error={error} />
+  // }
 
   const data = { user, accessToken }
 
-  return <AuthContext.Provider value={{ data }} />
+  return (
+    <AuthContext.Provider value={{ data }}>{children}</AuthContext.Provider>
+  )
 }
 
 const useAuth = () => React.useContext(AuthContext)
