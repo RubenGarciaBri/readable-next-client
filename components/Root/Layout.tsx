@@ -17,13 +17,10 @@ const Layout = ({ children }: IPropTypes) => {
       <TopBar />
       <div className="px-4 main-container">
         <div className="flex justify-between mt-8 alig-center gap-x-8">
-          <div className="flex flex-col gap-8 basis-1/4">
+          <div className="w-3/4">{children}</div>
+          <div className="flex flex-col w-1/4 gap-8">
             <ProfileCard name="Ruben Garcia" userName="@rubenGB" />
             <NavBar linksArray={linksArray} />
-          </div>
-          <div className="basis-2/4">{children}</div>
-          <div className="basis-1/4">
-            <ChatMenu contacts={contacts} />
           </div>
         </div>
       </div>

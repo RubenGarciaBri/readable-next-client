@@ -29,6 +29,8 @@ const Post = ({ id }: IPropTypes) => {
           height={45}
           className="rounded-full shadow-inner"
         /> */}
+        {/* Temporary iamge placeholder */}
+        <div className="w-10 h-10 bg-gray-200 rounded-full shadow"></div>
         <div className="ml-4">
           <Link href={`/profile/${username}`}>
             <a className="block -mb-1 font-semibold">{username}</a>
@@ -44,7 +46,7 @@ const Post = ({ id }: IPropTypes) => {
           <li className="flex justify-between items-align">
             <div className="flex items-align">
               <div>
-                <span className="inline-block p-1 rounded-full bg-primary-500">
+                <span className="inline-block p-1 rounded-full bg-orange-500">
                   <FaThumbsUp size={9} className="text-white" />
                 </span>
               </div>
@@ -64,13 +66,13 @@ const Post = ({ id }: IPropTypes) => {
             onClick={() => console.log("Clicked Thumbs Up!")}
             className="flex items-center mr-6 font-semibold text-gray-600 text gap-x-1.5"
           >
-            <FaRegThumbsUp className="text-primary-500" />
+            <FaRegThumbsUp className="text-orange-500" />
             Like
           </button>
         </li>
         <li>
           <button className="flex items-center font-semibold text-gray-600 gap-x-1.5">
-            <FaRegComment className="text-primary-500" />
+            <FaRegComment className="text-orange-500" />
             Comment
           </button>
         </li>

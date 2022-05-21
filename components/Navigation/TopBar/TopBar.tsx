@@ -12,7 +12,7 @@ const TopBar = () => {
     <div className="pt-2.5 pb-1 bg-white border-b border-gray-200 drop-shadow-sm">
       <div className="flex justify-between px-4 align-items main-container">
         <div className="flex justify-between align-items">
-          <span className="pt-1.5 text-xl text-primary-500 font-bold">
+          <span className="pt-1.5 text-xl text-orange-500 font-bold">
             <Link href="/">Readable</Link>
           </span>
           <div className="relative">
