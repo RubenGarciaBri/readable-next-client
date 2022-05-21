@@ -1,9 +1,9 @@
 import * as React from "react"
-import TopBar from "../../components/Navigation/TopBar/TopBar"
+import { Topbar } from "../../components/Navigation"
 import ProfileCard from "../../components/Cards/ProfileCard/ProfileCard"
-import NavBar from "../../components/Navigation/NavBar/NavBar"
-import FriendsCardRequest from "../../components/Cards/FriendsCard/FriendsCardRequest"
-import FriendsCardExisting from "../../components/Cards/FriendsCard/FriendsCardExisting"
+import NavBar from "../../components/Navigation/Navbar/Navbar"
+import FriendsCardRequest from "../../components/Cards/FriendsCards/FriendsCardRequest/FriendsCardRequest"
+import FriendsCardExisting from "../../components/Cards/FriendsCards/FriendsCardExisting/FriendsCardExisting"
 import { linksArray } from "../../data/linksArray"
 import { contacts } from "../../data/contacts"
 import ProfilePicture from "../../components/ProfilePicture/ProfilePicture"
@@ -11,7 +11,7 @@ import ProfilePicture from "../../components/ProfilePicture/ProfilePicture"
 const FriendsPage = () => {
   return (
     <>
-      <TopBar />
+      <Topbar />
       <div className="px-4 main-container">
         <div className="flex justify-between mt-8 alig-center gap-x-8">
           <div className="flex flex-col gap-8 basis-1/4">

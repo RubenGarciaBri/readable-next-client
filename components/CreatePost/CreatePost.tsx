@@ -2,7 +2,7 @@ import * as React from "react"
 
 import profilePic from "../../public/img/sample-profile.jpeg"
 import Image from "next/image"
-import CardBase from "../Cards/CardBase"
+import { CardBase } from "../Cards"
 
 const CreatePost = ({ handleClick }: any) => {
   return (

@@ -2,7 +2,7 @@ import * as React from "react"
 
 import Image from "next/image"
 import profilePic from "../../../public/img/sample-profile.jpeg"
-import CardBase from "../CardBase"
+import { CardBase } from "../CardBase"
 
 interface IPropTypes {
   name: string
@@ -22,7 +22,7 @@ const ProfileCard = ({ name, userName }: IPropTypes) => {
         />
         <div className="ml-4">
           <span className="block -mb-1 font-semibold">{name}</span>
-          <span className="text-sm  text-gray-600">{userName}</span>
+          <span className="text-sm text-gray-600">{userName}</span>
         </div>
       </div>
     </CardBase>

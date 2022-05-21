@@ -2,11 +2,11 @@ import * as React from "react"
 
 import { useRouter } from "next/router"
 
-import TopBar from "../../components/Navigation/TopBar/TopBar"
+import { Topbar } from "../../components/Navigation"
 import profilePic from "../../public/img/sample-profile.jpeg"
 import bgSamplePic from "../../public/img/bg-sample.jpg"
-import ProfileHeader from "../../components/Profile/ProfileHeader"
-import ProfileMainCard from "../../components/Profile/ProfileMainCard"
+import { ProfileHeader } from "../../components/ProfileHeader"
+import { ProfileMainCard } from "../../components/Cards"
 
 const ProfilePage = () => {
   const router = useRouter()
@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
   return (
     <div className="min-h-screen bg-gray-150">
-      <TopBar />
+      <Topbar />
       <div className="main-container">
         <ProfileHeader image={bgSamplePic} />
         <div className="relative -top-24">

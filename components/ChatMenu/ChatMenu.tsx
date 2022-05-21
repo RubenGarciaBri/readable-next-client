@@ -2,7 +2,7 @@ import * as React from "react"
 
 import Link from "next/link"
 import Image from "next/image"
-import CardBase from "../Cards/CardBase"
+import { CardBase } from "../Cards"
 
 interface IPropTypes {
   // TODO: Make this more specific
@@ -30,9 +30,7 @@ const ChatMenu = ({ contacts }: IPropTypes) => {
                       <span className="block -mb-1 text-sm font-semibold">
                         {name}
                       </span>
-                      <span className="text-xs  text-gray-600">
-                        {userName}
-                      </span>
+                      <span className="text-xs text-gray-600">{userName}</span>
                     </div>
                   </a>
                 </Link>

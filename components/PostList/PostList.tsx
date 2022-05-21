@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 
-import Post from "../../components/Post/Post"
+import { Post } from "../../components/Post"
 // Selectors
 import { getAllPostIdsSelector } from "../../redux/posts/selectors"
 // Actions

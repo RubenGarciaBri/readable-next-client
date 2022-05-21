@@ -1,8 +1,8 @@
 import * as React from "react"
 
-import FriendsCardBase from "./FriendsCardBase"
-import ConfirmButton from "../../Buttons/ConfirmButton/ConfirmButton"
-import IgnoreButton from "../../Buttons/IgnoreButton/IgnoreButton"
+import FriendsCardBase from "../FriendsCardBase/FriendsCardBase"
+import { ConfirmButton } from "../../../Buttons"
+import { IgnoreButton } from "../../../Buttons"
 
 interface IPropTypes {
   profilePicture: StaticImageData

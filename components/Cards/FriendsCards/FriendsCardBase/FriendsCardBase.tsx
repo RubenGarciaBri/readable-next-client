@@ -1,8 +1,8 @@
 import * as React from "react"
 
 import Image from "next/image"
-import CardBase from "../CardBase"
-import ProfilePicture from "../../ProfilePicture/ProfilePicture"
+import { CardBase } from "../../CardBase"
+import ProfilePicture from "../../../ProfilePicture/ProfilePicture"
 
 interface IPropTypes {
   children: React.ReactNode
