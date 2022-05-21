@@ -1,35 +1,45 @@
 import * as React from "react"
 
+import axios from "axios"
 import type { NextPage } from "next"
+import { useDispatch, useSelector } from "react-redux"
+
 import Layout from "../components/Root/Layout"
 import CreatePost from "../components/CreatePost/CreatePost"
 import CreatePostModal from "../components/CreatePost/Modal/CreatePostModal"
-import { posts } from "../data/posts"
 import Post from "../components/Post/Post"
+
+// Selectors
+import { getAllPostIdsSelector } from "../redux/posts/selectors"
+// Actions
+import { getPosts } from "../redux/posts/actions"
 
 const Home: NextPage = () => {
   const [showModal, setShowModal] = React.useState(false)
 
+  const dispatch = useDispatch()
+
+  const posts = useSelector(getAllPostIdsSelector())
+
+  React.useEffect(() => {
+    dispatch(getPosts())
+  }, [])
+
   return (
     <>
-      {/* <button onClick={() => setShowModal(true)}>Open Modal</button> */}
       <Layout>
         <CreatePost handleClick={() => setShowModal(true)} />
-        {posts &&
-          posts.map(({ name, body, userName, profilePicture, postId, timestamp, likesCount, commentsCount }) => {
+        {posts && posts.length > 0 ? (
+          posts.map((id: string) => {
             return (
-              <Post
-                name={name}
-                userName={userName}
-                body={body}
-                profilePicture={profilePicture}
-                postId={postId}
-                timestamp={timestamp}
-                likesCount={likesCount}
-                commentsCount={commentsCount}
-              />
+              <div key={id}>
+                <Post id={id} />
+              </div>
             )
-          })}
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
       </Layout>
       <CreatePostModal onClose={() => setShowModal(false)} show={showModal} />
     </>

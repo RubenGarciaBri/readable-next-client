@@ -16,7 +16,10 @@ const TopBar = () => {
             <Link href="/">Readable</Link>
           </span>
           <div className="relative">
-            <FaSearch size={15} className="absolute text-gray-500 left-10 top-3" />
+            <FaSearch
+              size={15}
+              className="absolute text-gray-500 left-10 top-3"
+            />
             <input
               type="text"
               placeholder="Search"

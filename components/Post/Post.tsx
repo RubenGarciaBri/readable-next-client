@@ -2,57 +2,58 @@ import * as React from "react"
 
 import Image from "next/image"
 import Link from "next/link"
+import TimeAgo from "react-timeago"
 import { FaRegThumbsUp, FaRegComment, FaThumbsUp } from "react-icons/fa"
 
+import { useDispatch, useSelector } from "react-redux"
+// Selectors
+import { getPostByIdSelector } from "../../redux/posts/selectors"
+
 interface IPropTypes {
-  name: string
-  userName: string
-  profilePicture: StaticImageData
-  body: string
-  postId: string
-  timestamp: string
-  likesCount: number
-  commentsCount: number
+  id: string
 }
 
-const Post = ({
-  name,
-  userName,
-  profilePicture,
-  body,
-  postId,
-  timestamp,
-  likesCount,
-  commentsCount,
-}: IPropTypes) => {
+const Post = ({ id }: IPropTypes) => {
+  const dispatch = useDispatch()
+
+  const { username, body, commentIds, likeIds, timestamp } = useSelector(
+    getPostByIdSelector(id)
+  )
+
   return (
     <div className="px-6 pt-6 pb-4 my-6 bg-white drop-shadow rounded-xl">
       <div className="flex">
-        <Image
+        {/* <Image
           src={profilePicture}
           width={45}
           height={45}
           className="rounded-full shadow-inner"
-        />
+        /> */}
         <div className="ml-4">
-          <span className="block -mb-1 font-semibold">{name}</span>
-          <span className="text-sm text-gray-600">{timestamp}</span>
+          <Link href={`/profile/${username}`}>
+            <a className="block -mb-1 font-semibold">{username}</a>
+          </Link>
+          <span className="text-sm text-gray-600">
+            <TimeAgo date={timestamp} />
+          </span>
         </div>
       </div>
       <p className="my-6 text-gray-600">{body}</p>
-      <div className="border-b border-gray-300 ">
+      <div className="border-b border-gray-300">
         <ul>
           <li className="flex justify-between items-align">
             <div className="flex items-align">
               <div>
-                <span className="inline-block p-1 bg-primary-500 rounded-full">
+                <span className="inline-block p-1 rounded-full bg-primary-500">
                   <FaThumbsUp size={9} className="text-white" />
                 </span>
               </div>
-              <span className="ml-1 text-sm text-gray-600">{likesCount}</span>
+              <span className="ml-1 text-sm text-gray-600">
+                {likeIds?.length}
+              </span>
             </div>
             <span className="text-sm text-gray-600">
-              {commentsCount} comments
+              {commentIds?.length} comments
             </span>
           </li>
         </ul>
@@ -74,7 +75,6 @@ const Post = ({
           </button>
         </li>
       </ul>
-      <div></div>
     </div>
   )
 }
