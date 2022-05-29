@@ -60,9 +60,9 @@ const AuthProvider = ({ children, ...props }: any) => {
     )
   }
 
-  // if (!accessToken) {
-  //   return <Login login={login} error={error} />
-  // }
+  if (!accessToken) {
+    return <Login login={login} error={error} />
+  }
 
   const data = { user, accessToken }
 
