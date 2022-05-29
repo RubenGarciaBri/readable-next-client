@@ -1,8 +1,8 @@
 import React from "react"
 
-import FriendsCardBase from "./FriendsCardBase"
-import ProfileButton from "../../Buttons/ProfileButton/ProfileButton"
-import ProfilePicture from "../../ProfilePicture/ProfilePicture"
+import FriendsCardBase from "../FriendsCardBase/FriendsCardBase"
+import { ProfileButton } from "../../../Buttons"
+import ProfilePicture from "../../../ProfilePicture/ProfilePicture"
 
 interface IPropTypes {
   profilePicture: StaticImageData

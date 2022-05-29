@@ -3,16 +3,16 @@ import React from "react"
 import profilePic from "../../../public/img/sample-profile.jpeg"
 import Link from "next/link"
 import { FaSearch } from "react-icons/fa"
-import ProfilePicture from "../../ProfilePicture/ProfilePicture"
-import NotificationsButton from "../Buttons/NotificationsButton/NotificationsButton"
-import LogoutButton from "../Buttons/LogoutButton/LogoutButton"
+import { ProfilePicture } from "../../ProfilePicture"
+import { NotificationsButton } from "../../Buttons"
+import { LogoutButton } from "../../Buttons"
 
-const TopBar = () => {
+const Topbar = () => {
   return (
     <div className="pt-2.5 pb-1 bg-white border-b border-gray-200 drop-shadow-sm">
       <div className="flex justify-between px-4 align-items main-container">
         <div className="flex justify-between align-items">
-          <span className="pt-1.5 text-xl text-primary-500 font-bold">
+          <span className="pt-1.5 text-xl text-blue-600 font-bold">
             <Link href="/">Readable</Link>
           </span>
           <div className="relative">
@@ -37,4 +37,4 @@ const TopBar = () => {
   )
 }
 
-export default TopBar
+export default Topbar

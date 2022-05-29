@@ -2,16 +2,12 @@ import axios from "axios"
 
 import { SET_POST, STOP_LOADING_POSTS } from "./types"
 
-// export const getAllPosts = (payload: any) => ({
-//   type: SET_POSTS,
-//   payload,
-// })
-
 export const getPosts = () => (dispatch: any) => {
   axios
     .get("/api/posts")
     .then(res => {
       const posts = res.data
+      console.log({posts})
       posts.forEach((post: any) => {
         dispatch({
           type: SET_POST,
@@ -24,4 +20,8 @@ export const getPosts = () => (dispatch: any) => {
       })
     })
     .catch(err => console.log(err))
+
+  dispatch({
+    type: STOP_LOADING_POSTS,
+  })
 }

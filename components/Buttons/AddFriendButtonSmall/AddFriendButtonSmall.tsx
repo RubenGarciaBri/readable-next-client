@@ -10,7 +10,7 @@ interface IPropTypes {
 const AddFriendButtonSmall = ({ iconSize, classNames }: IPropTypes) => {
   return (
     <button
-      className={`absolute p-4 text-white bg-primary-500 rounded-full shadow-inner bottom-3 right-4 ${
+      className={`absolute p-4 text-white bg-blue-600 rounded-full shadow-inner bottom-3 right-4 ${
         classNames && classNames
       }`}
     >

@@ -1,6 +1,7 @@
 import * as React from "react"
+
 import Image from "next/image"
-import AddFriendButton from "../Buttons/AddFriendButtonSmall/AddFriendButtonSmall"
+import { AddFriendButtonSmall } from "../../Buttons"
 
 interface IPropTypes {
   profilePic: StaticImageData
@@ -29,7 +30,7 @@ const ProfileMainCard = ({
         <span className="block text-gray-600">{friendsNumber} friends</span>
         <span>{location}</span>
       </div>
-      <AddFriendButton />
+      <AddFriendButtonSmall />
     </div>
   )
 }

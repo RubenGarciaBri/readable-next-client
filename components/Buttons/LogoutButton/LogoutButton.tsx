@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { FaSignOutAlt } from "react-icons/fa"
-import NavButtonBase from "../NavButtonBase"
+import { NavButtonBase } from "../NavButtonBase"
 
 const LogoutButton = () => {
   return (

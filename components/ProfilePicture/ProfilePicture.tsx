@@ -2,7 +2,7 @@ import * as React from "react"
 
 import Link from "next/link"
 import Image from "next/image"
-import OnlineBadge from "../OnlineBadge/OnlineBadge"
+import { OnlineBadge } from "../OnlineBadge"
 
 interface IPropTypes {
   profilePic: StaticImageData

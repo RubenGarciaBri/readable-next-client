@@ -8,6 +8,8 @@
     "lint": "prettier --write ./components"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.3",
+    "@heroicons/react": "^1.0.6",
     "@reduxjs/toolkit": "^1.7.2",
     "axios": "^0.24.0",
     "babel-jest": "^27.4.5",
