@@ -78,7 +78,7 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
                   )
                 })}
             </ul>
-            <button className="px-12 py-3 font-semibold text-white bg-orange-500 rounded-full">
+            <button className="px-12 py-3 font-semibold text-white bg-blue-600 rounded-full">
               Post
             </button>
           </div>

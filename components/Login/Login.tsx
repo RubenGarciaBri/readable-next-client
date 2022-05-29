@@ -5,7 +5,7 @@ const Login = ({ login }: any) => {
     <div className="min-h-screen px-4 bg-gray-50">
       <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="text-center sm:mx-auto sm:w-full sm:max-w-md">
-          <span className="pt-1.5 text-2xl text-orange-500 font-bold">
+          <span className="pt-1.5 text-2xl text-blue-600 font-bold">
             Readable
           </span>
           <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">

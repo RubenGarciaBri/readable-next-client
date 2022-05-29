@@ -21,7 +21,7 @@ const Navbar = ({ linksArray }: IPropTypes) => {
                 <Link href={url}>
                   <a
                     className={`block p-4 border-b border-gray-300 flex align-items justify-content gap-x-4 ${
-                      router.pathname === url && "font-semibold text-orange-500"
+                      router.pathname === url && "font-semibold text-blue-600"
                     } `}
                   >
                     {Icon}

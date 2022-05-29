@@ -18,7 +18,7 @@ const PostList = () => {
   }, [])
 
   return (
-    <div>
+    <>
       {posts && posts.length > 0 ? (
         posts.map((id: string) => {
           return (
@@ -30,7 +30,7 @@ const PostList = () => {
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </>
   )
 }
 

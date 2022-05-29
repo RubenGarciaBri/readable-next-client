@@ -13,7 +13,10 @@ export default async function handler(
   const posts: any[] = []
   await snapshot.forEach(post => {
     const data = post.data()
-    posts.push({ id: post.id, data: { ...data, timestamp: data.timestamp.toDate() } })
+    posts.push({
+      id: post.id,
+      data: { ...data, timestamp: data.createdAt.toDate() },
+    })
   })
 
   res.status(200).json(posts)
