@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { LoginForm, SignupForm } from "../Forms"
 
-const Login = ({ login }: any) => {
+const Login = ({ logIn, signUp, error }: any) => {
   const [activeTab, setActiveTab] = React.useState(0)
 
   const tabs = [
@@ -76,7 +76,12 @@ const Login = ({ login }: any) => {
                 </nav>
               </div>
             </div>
-            {activeTab === 0 ? <LoginForm login={login} /> : <SignupForm />}
+            {activeTab === 0 && (
+              <LoginForm logIn={logIn} signUp={signUp} error={error} />
+            )}
+            {activeTab === 1 && (
+              <SignupForm logIn={logIn} signUp={signUp} error={error} />
+            )}
           </div>
         </div>
       </div>

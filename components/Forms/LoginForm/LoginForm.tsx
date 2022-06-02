@@ -2,7 +2,13 @@ import * as React from "react"
 
 import { Form, Input } from "../../Form"
 
-const LoginForm = () => {
+interface IPropTypes {
+  logIn: Function
+  signUp: Function
+  error: string | undefined
+}
+
+const LoginForm = ({ logIn, signUp, error }: IPropTypes) => {
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")
 

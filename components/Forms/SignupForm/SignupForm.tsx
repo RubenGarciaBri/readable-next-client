@@ -1,8 +1,15 @@
 import * as React from "react"
 
+import { useAuth } from "../../../context/auth-context"
 import { Form, Input } from "../../Form"
 
-const SignupForm = () => {
+interface IPropTypes {
+  logIn: Function
+  signUp: Function
+  error: string | undefined
+}
+
+const SignupForm = ({ logIn, signUp, error }: IPropTypes) => {
   const [userName, setUserName] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")
@@ -12,13 +19,11 @@ const SignupForm = () => {
     <Form
       submitFn={e => {
         e.preventDefault()
-        console.log({ userName })
-        console.log({ email })
-        console.log({ password })
-        console.log({ confirmPassword })
+        signUp({ email, password, userName })
       }}
       buttonText="Create Account"
     >
+      {error && <p>{error}</p>}
       <Input
         label="Name"
         id="userName"

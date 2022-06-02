@@ -2,18 +2,29 @@ import * as React from "react"
 
 import jwt_decode from "jwt-decode"
 import { isPast } from "date-fns"
+import axios from "axios"
 import { useRouter } from "next/router"
 
 import useLocalStorage from "../utils/hooks/useLocalStorage"
 import Login from "../components/Login/Login"
 import Spinner from "../components/Spinner/Spinner"
 
-const AuthContext = React.createContext({
-  data: {},
-  //   login: Function,
-  //   logout: Function,
-  //   isLoggedIn: Boolean,
-})
+type SignUpData = {
+  email: string
+  password: string
+  userName: string
+}
+
+interface AuthContextProps {
+  accessToken: string
+  userName: string
+  signUp: ({ email, password, userName }: SignUpData) => void
+  login: () => void
+  logout: () => void
+  isLoggedIn: boolean
+}
+
+const AuthContext = React.createContext<Partial<AuthContextProps>>({})
 
 const AuthProvider = ({ children, ...props }: any) => {
   const [fetching, setFetching] = React.useState(true)
@@ -21,7 +32,7 @@ const AuthProvider = ({ children, ...props }: any) => {
     "access_token",
     undefined
   )
-  const [user, setUser] = useLocalStorage("user", undefined)
+  const [userName, setUserName] = useLocalStorage("user", undefined)
   const [error, setError] = React.useState<string | undefined>(undefined)
 
   const router = useRouter()
@@ -33,7 +44,7 @@ const AuthProvider = ({ children, ...props }: any) => {
       const date = new Date(0)
       date.setUTCSeconds(exp)
       if (isPast(date)) {
-        logout()
+        logOut()
         setFetching(false)
       } else {
         setFetching(false)
@@ -43,9 +54,27 @@ const AuthProvider = ({ children, ...props }: any) => {
     }
   }, [accessToken])
 
-  const login = async () => {}
+  const signUp = async (data: SignUpData) => {
+    const { email, password, userName } = data
+    setFetching(true)
+    setError(undefined)
 
-  const logout = async () => {
+    axios
+      .post("/api/signup", { email, password, userName })
+      .then(res => {
+        setAccessToken(res.data.idToken)
+        setUserName(res.data.userName)
+      })
+      .catch(err => {
+        console.error(err)
+        setError(err.message)
+      })
+      .finally(() => setFetching(false))
+  }
+
+  const logIn = async () => {}
+
+  const logOut = async () => {
     // API CALL
     localStorage.clear()
     router.push(`/`)
@@ -61,13 +90,16 @@ const AuthProvider = ({ children, ...props }: any) => {
   }
 
   if (!accessToken) {
-    return <Login login={login} error={error} />
+    return <Login logIn={logIn} signUp={signUp} error={error} />
   }
 
-  const data = { user, accessToken }
-
   return (
-    <AuthContext.Provider value={{ data }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{ userName, accessToken, error, signUp }}
+      {...props}
+    >
+      {children}
+    </AuthContext.Provider>
   )
 }
 
