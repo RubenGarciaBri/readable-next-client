@@ -6,6 +6,7 @@ import { NavButtonBase } from "../NavButtonBase"
 
 const LogoutButton = () => {
   const { logOut } = useAuth()
+
   return (
     <NavButtonBase clickFn={logOut}>
       <FaSignOutAlt />

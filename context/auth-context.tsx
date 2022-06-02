@@ -15,6 +15,11 @@ type SignUpData = {
   userName: string
 }
 
+type LogInData = {
+  email: string
+  password: string
+}
+
 interface AuthContextProps {
   accessToken: string
   userName: string
@@ -36,6 +41,8 @@ const AuthProvider = ({ children, ...props }: any) => {
   const [error, setError] = React.useState<string | undefined>(undefined)
 
   const router = useRouter()
+
+  console.log(userName)
 
   React.useEffect(() => {
     if (accessToken) {
@@ -72,7 +79,23 @@ const AuthProvider = ({ children, ...props }: any) => {
       .finally(() => setFetching(false))
   }
 
-  const logIn = async () => {}
+  const logIn = async (data: LogInData) => {
+    const { email, password } = data
+    setFetching(true)
+    setError(undefined)
+
+    axios
+      .post("/api/login", { email, password })
+      .then(res => {
+        setAccessToken(res.data.idToken)
+        setUserName(res.data.userName)
+      })
+      .catch(err => {
+        console.error(err)
+        setError(err.message)
+      })
+      .finally(() => setFetching(false))
+  }
 
   const logOut = async () => {
     localStorage.clear()
@@ -94,7 +117,7 @@ const AuthProvider = ({ children, ...props }: any) => {
 
   return (
     <AuthContext.Provider
-      value={{ userName, accessToken, error, signUp, logOut }}
+      value={{ userName, accessToken, error, signUp, logIn, logOut }}
       {...props}
     >
       {children}

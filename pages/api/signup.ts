@@ -5,11 +5,6 @@ import { auth, db, firebaseConfig } from "../../firebase"
 import type { NextApiRequest, NextApiResponse } from "next"
 
 type Data = {}
-type FBError = {
-  code: string
-  message: string
-  name: string
-}
 
 export default async function handler(
   req: NextApiRequest,
@@ -22,7 +17,7 @@ export default async function handler(
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
-      return res.status(400).json({ error: "User already exists" })
+      return res.status(400).json({ errorMessage: "User already exists" })
     }
 
     const userCredential = await createUserWithEmailAndPassword(
@@ -52,8 +47,8 @@ export default async function handler(
 
     return res.status(201).json({ userName, idToken })
   } catch (error: any) {
-    const errorCode = error.code
-    const errorMessage = error.message
-    return res.status(500).json({ errorCode, errorMessage })
+    return res
+      .status(500)
+      .json({ errorCode: error.code, errorMessage: error.message })
   }
 }

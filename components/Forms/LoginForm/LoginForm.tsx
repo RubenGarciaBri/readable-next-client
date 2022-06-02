@@ -16,8 +16,7 @@ const LoginForm = ({ logIn, signUp, error }: IPropTypes) => {
     <Form
       submitFn={e => {
         e.preventDefault()
-        console.log({ email })
-        console.log({ password })
+        logIn({ email, password })
       }}
       buttonText="Log In"
     >
