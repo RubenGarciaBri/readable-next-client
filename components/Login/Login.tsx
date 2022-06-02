@@ -1,13 +1,33 @@
 import * as React from "react"
 
+import { LogInData, SignUpData } from "../../context/auth-context"
 import { LoginForm, SignupForm } from "../Forms"
 
-const Login = ({ logIn, signUp, error }: any) => {
+interface IPropTypes {
+  logIn: (data: LogInData) => Promise<void>
+  signUp: (data: SignUpData) => Promise<void>
+  error: string | undefined
+  setError: Function
+}
+
+const Login = ({ logIn, signUp, error, setError }: IPropTypes) => {
   const [activeTab, setActiveTab] = React.useState(0)
 
   const tabs = [
-    { name: "Log In", onClick: () => setActiveTab(0) },
-    { name: "Sign Up", onClick: () => setActiveTab(1) },
+    {
+      name: "Log In",
+      onClick: () => {
+        setError(undefined)
+        setActiveTab(0)
+      },
+    },
+    {
+      name: "Sign Up",
+      onClick: () => {
+        setError(undefined)
+        setActiveTab(1)
+      },
+    },
   ]
 
   return (
@@ -77,10 +97,10 @@ const Login = ({ logIn, signUp, error }: any) => {
               </div>
             </div>
             {activeTab === 0 && (
-              <LoginForm logIn={logIn} signUp={signUp} error={error} />
+              <LoginForm logIn={logIn} error={error} setError={setError} />
             )}
             {activeTab === 1 && (
-              <SignupForm logIn={logIn} signUp={signUp} error={error} />
+              <SignupForm signUp={signUp} error={error} setError={setError} />
             )}
           </div>
         </div>

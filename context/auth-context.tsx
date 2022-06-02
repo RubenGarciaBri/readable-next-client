@@ -9,13 +9,13 @@ import useLocalStorage from "../utils/hooks/useLocalStorage"
 import Login from "../components/Login/Login"
 import Spinner from "../components/Spinner/Spinner"
 
-type SignUpData = {
+export type SignUpData = {
   email: string
   password: string
   userName: string
 }
 
-type LogInData = {
+export type LogInData = {
   email: string
   password: string
 }
@@ -42,7 +42,7 @@ const AuthProvider = ({ children, ...props }: any) => {
 
   const router = useRouter()
 
-  console.log(userName)
+  console.log(error)
 
   React.useEffect(() => {
     if (accessToken) {
@@ -112,7 +112,7 @@ const AuthProvider = ({ children, ...props }: any) => {
   }
 
   if (!accessToken) {
-    return <Login logIn={logIn} signUp={signUp} error={error} />
+    return <Login logIn={logIn} signUp={signUp} error={error} setError={setError}/>
   }
 
   return (

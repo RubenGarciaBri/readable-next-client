@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { ClipLoader } from "react-spinners"
+import { BeatLoader } from "react-spinners"
 import { css } from "@emotion/react"
 
 export const spinnerStyles = css`
@@ -15,10 +15,10 @@ interface IPropTypes {
 
 export const Spinner = ({ color, size }: IPropTypes) => {
   return (
-    <ClipLoader
-      color={color ? color : "black"}
+    <BeatLoader
+      color={color ? color : "#2563EB"}
       css={spinnerStyles}
-      size={size ? size : 50}
+      size={size ? size : 20}
     />
   )
 }

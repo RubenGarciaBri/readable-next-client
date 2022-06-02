@@ -1,14 +1,16 @@
 import * as React from "react"
 
+import { LogInData } from "../../../context/auth-context"
 import { Form, Input } from "../../Form"
+import { ErrorMessage } from "../../Form"
 
 interface IPropTypes {
-  logIn: Function
-  signUp: Function
+  logIn: (data: LogInData) => Promise<void>
   error: string | undefined
+  setError: Function
 }
 
-const LoginForm = ({ logIn, signUp, error }: IPropTypes) => {
+const LoginForm = ({ logIn, error, setError }: IPropTypes) => {
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")
 
@@ -20,6 +22,7 @@ const LoginForm = ({ logIn, signUp, error }: IPropTypes) => {
       }}
       buttonText="Log In"
     >
+      {error && <ErrorMessage errorMessage={error} />}
       <Input
         label="Email Address"
         id="email"
