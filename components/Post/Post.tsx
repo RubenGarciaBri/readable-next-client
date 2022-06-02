@@ -18,15 +18,15 @@ const Post = ({ id }: IPropTypes) => {
   const dispatch = useDispatch()
   const [openComments, setOpenComments] = React.useState(false)
 
-  const { username, body, commentIds, likeIds, timestamp } = useSelector(
+  const { authorId, body, commentIds, likeIds, createdAt } = useSelector(
     getPostByIdSelector(id)
   )
 
   const comments = [
-    { username: "Gerrard74", body: "Hey there, how is it going?" },
-    { username: "Lanc2", body: "Supp man, long time no talk!" },
+    { userName: "Gerrard74", body: "Hey there, how is it going?" },
+    { userName: "Lanc2", body: "Supp man, long time no talk!" },
     {
-      username: "Jessy_LA",
+      userName: "Jessy_LA",
       body: "Wow, that's so cool, looking forward to see you",
     },
   ]
@@ -43,11 +43,11 @@ const Post = ({ id }: IPropTypes) => {
         {/* Temporary iamge placeholder */}
         <div className="w-10 h-10 bg-gray-200 rounded-full shadow"></div>
         <div className="ml-4">
-          <Link href={`/profile/${username}`}>
-            <a className="block -mb-1 font-semibold">{username}</a>
+          <Link href={`/profile/${authorId}`}>
+            <a className="block -mb-1 font-semibold">{authorId}</a>
           </Link>
           <span className="text-sm text-gray-600">
-            <TimeAgo date={timestamp} />
+            <TimeAgo date={createdAt} />
           </span>
         </div>
       </div>

@@ -42,8 +42,6 @@ const AuthProvider = ({ children, ...props }: any) => {
 
   const router = useRouter()
 
-  console.log(error)
-
   React.useEffect(() => {
     if (accessToken) {
       var decoded: { exp: number } = jwt_decode(accessToken)
@@ -112,7 +110,9 @@ const AuthProvider = ({ children, ...props }: any) => {
   }
 
   if (!accessToken) {
-    return <Login logIn={logIn} signUp={signUp} error={error} setError={setError}/>
+    return (
+      <Login logIn={logIn} signUp={signUp} error={error} setError={setError} />
+    )
   }
 
   return (
