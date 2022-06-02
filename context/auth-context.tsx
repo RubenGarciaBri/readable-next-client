@@ -19,8 +19,8 @@ interface AuthContextProps {
   accessToken: string
   userName: string
   signUp: ({ email, password, userName }: SignUpData) => void
-  login: () => void
-  logout: () => void
+  logIn: () => void
+  logOut: () => void
   isLoggedIn: boolean
 }
 
@@ -75,7 +75,6 @@ const AuthProvider = ({ children, ...props }: any) => {
   const logIn = async () => {}
 
   const logOut = async () => {
-    // API CALL
     localStorage.clear()
     router.push(`/`)
     setAccessToken(undefined)
@@ -95,7 +94,7 @@ const AuthProvider = ({ children, ...props }: any) => {
 
   return (
     <AuthContext.Provider
-      value={{ userName, accessToken, error, signUp }}
+      value={{ userName, accessToken, error, signUp, logOut }}
       {...props}
     >
       {children}

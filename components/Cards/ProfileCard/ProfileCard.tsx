@@ -6,10 +6,10 @@ import { CardBase } from "../CardBase"
 
 interface IPropTypes {
   name: string
-  userName: string
+  // userName: string
 }
 
-const ProfileCard = ({ name, userName }: IPropTypes) => {
+const ProfileCard = ({ name }: IPropTypes) => {
   return (
     <CardBase>
       <div className="flex items-center">
@@ -22,7 +22,7 @@ const ProfileCard = ({ name, userName }: IPropTypes) => {
         />
         <div className="ml-4">
           <span className="block -mb-1 font-semibold">{name}</span>
-          <span className="text-sm text-gray-600">{userName}</span>
+          {/* <span className="text-sm text-gray-600">{userName}</span> */}
         </div>
       </div>
     </CardBase>
