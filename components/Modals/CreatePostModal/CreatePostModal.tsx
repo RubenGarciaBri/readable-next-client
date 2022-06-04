@@ -1,11 +1,14 @@
 import * as React from "react"
-
 import ReactDOM from "react-dom"
+
+import { useAuth } from "../../../context/auth-context"
+import { useDispatch } from "react-redux"
 import { FaTimes } from "react-icons/fa"
 import { modalButtons } from "../../../data/modalButtons"
 import profilePic from "../../../public/img/sample-profile.jpeg"
 import { useOnClickOutside } from "../../../utils/hooks/useOnClickOutside"
 import Image from "next/image"
+import { addPost } from "../../../redux/posts/actions"
 
 interface IPropTypes {
   show: boolean
@@ -13,8 +16,11 @@ interface IPropTypes {
 }
 
 const CreatePostModal = ({ show, onClose }: IPropTypes) => {
+  const { userName } = useAuth()
   const [isBrowser, setIsBrowser] = React.useState(false)
   const [text, setText] = React.useState("")
+
+  const dispatch = useDispatch()
 
   const ref = React.useRef<HTMLDivElement>(null)
   // TODO: Fix hook issue, currently not working
@@ -57,8 +63,8 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
               className="rounded-full shadow-inner"
             />
             <div className="ml-4">
-              <span className="block -mb-1 font-semibold">Ruben Garcia</span>
-              <span className="text-sm text-gray-600">@rubenGB</span>
+              <span className="block -mb-1 font-semibold">{userName}</span>
+              {/* <span className="text-sm text-gray-600">@rubenGB</span> */}
             </div>
           </div>
           <textarea
@@ -78,7 +84,13 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
                   )
                 })}
             </ul>
-            <button className="px-12 py-3 font-semibold text-white bg-blue-600 rounded-full">
+            <button
+              className="px-12 py-3 font-semibold text-white bg-blue-600 rounded-full"
+              onClick={() => {
+                userName && dispatch(addPost(text, userName))
+                onClose()
+              }}
+            >
               Post
             </button>
           </div>
