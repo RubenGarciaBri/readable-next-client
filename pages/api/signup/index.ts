@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { collection, doc, getDoc, setDoc } from "firebase/firestore"
-import { auth, db, firebaseConfig } from "../../firebase"
+import { auth, db, firebaseConfig } from "../../../firebase"
 
 import type { NextApiRequest, NextApiResponse } from "next"
 

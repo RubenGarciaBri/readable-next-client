@@ -7,20 +7,25 @@ import { FaRegThumbsUp, FaRegComment, FaThumbsUp } from "react-icons/fa"
 
 import { CommentList } from "../CommentList"
 import { useDispatch, useSelector } from "react-redux"
+import { likePost, unlikePost } from "../../redux/posts/actions"
 // Selectors
 import { getPostByIdSelector } from "../../redux/posts/selectors"
+import { getLikesFromLikeIdsSelector } from "../../redux/likes/selectors"
+import { useAuth } from "../../context/auth-context"
 
 interface IPropTypes {
   id: string
 }
 
 const Post = ({ id }: IPropTypes) => {
+  const { user } = useAuth()
   const dispatch = useDispatch()
   const [openComments, setOpenComments] = React.useState(false)
-
   const { authorId, body, commentIds, likeIds, createdAt } = useSelector(
     getPostByIdSelector(id)
   )
+  const likes = useSelector(getLikesFromLikeIdsSelector(likeIds))
+  let hasLiked = likes?.find(like => like?.email === user.email)
 
   const comments = [
     { userName: "Gerrard74", body: "Hey there, how is it going?" },
@@ -77,16 +82,24 @@ const Post = ({ id }: IPropTypes) => {
       <ul className="flex my-3">
         <li>
           <button
-            onClick={() => console.log("Clicked Thumbs Up!")}
-            className="flex items-center mr-6 font-semibold text-gray-600 text gap-x-1.5"
+            onClick={() => {
+              if (hasLiked) {
+                dispatch(unlikePost(id, hasLiked.likeId))
+              } else {
+                dispatch(likePost(id, user.email))
+              }
+            }}
+            className={`flex items-center mr-6 font-semibold text gap-x-1.5 ${
+              hasLiked ? "text-blue-600" : "text-gray-600"
+            }`}
           >
-            <FaRegThumbsUp className="text-blue-600" />
+            <FaRegThumbsUp />
             Like
           </button>
         </li>
         <li>
           <button className="flex items-center font-semibold text-gray-600 gap-x-1.5">
-            <FaRegComment className="text-blue-600" />
+            <FaRegComment />
             Comment
           </button>
         </li>

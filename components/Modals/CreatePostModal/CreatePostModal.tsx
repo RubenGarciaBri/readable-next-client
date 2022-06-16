@@ -16,7 +16,7 @@ interface IPropTypes {
 }
 
 const CreatePostModal = ({ show, onClose }: IPropTypes) => {
-  const { userName } = useAuth()
+  const { user } = useAuth()
   const [isBrowser, setIsBrowser] = React.useState(false)
   const [text, setText] = React.useState("")
 
@@ -40,11 +40,11 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
   }
 
   const modalContent = show && (
-    <div
-      ref={ref}
-      className="absolute top-0 left-0 flex justify-center w-full h-full bg-gray-300/70"
-    >
-      <div className="relative mt-20 bg-white modal rounded-xl drop-shadow-lg">
+    <div className="absolute top-0 left-0 flex justify-center w-full h-full bg-gray-300/70">
+      <div
+        className="relative mt-20 bg-white modal rounded-xl drop-shadow-lg"
+        ref={ref}
+      >
         <div className="flex items-center px-8 py-6 border-b space-between">
           <p className="w-full text-lg">Create new post</p>
           <button
@@ -63,7 +63,9 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
               className="rounded-full shadow-inner"
             />
             <div className="ml-4">
-              <span className="block -mb-1 font-semibold">{userName}</span>
+              <span className="block -mb-1 font-semibold">
+                {user?.userName}
+              </span>
               {/* <span className="text-sm text-gray-600">@rubenGB</span> */}
             </div>
           </div>
@@ -87,7 +89,7 @@ const CreatePostModal = ({ show, onClose }: IPropTypes) => {
             <button
               className="px-12 py-3 font-semibold text-white bg-blue-600 rounded-full"
               onClick={() => {
-                userName && dispatch(addPost(text, userName))
+                user?.userName && dispatch(addPost(text, user.userName))
                 onClose()
               }}
             >

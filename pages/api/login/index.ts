@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { collection, doc, getDoc, setDoc } from "firebase/firestore"
-import { auth, db } from "../../firebase"
+import { auth, db } from "../../../firebase"
 
 import type { NextApiRequest, NextApiResponse } from "next"
 
@@ -24,7 +24,7 @@ export default async function handler(
       return res.status(400).json({ errorMessage: "User doesn't exist" })
     }
 
-    return res.status(200).json({ idToken, userName: data?.userName })
+    return res.status(200).json({ idToken, data })
   } catch (error: any) {
     return res
       .status(403)

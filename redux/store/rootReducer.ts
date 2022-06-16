@@ -1,8 +1,10 @@
 import { combineReducers } from "redux"
 
 import postsReducer from "../posts/reducer"
+import likesReducer from "../likes/reducer"
 
 const rootReducer = combineReducers({
+  likes: likesReducer,
   posts: postsReducer,
 })
 
