@@ -2,7 +2,7 @@ import React from "react"
 
 import FriendsCardBase from "../FriendsCardBase/FriendsCardBase"
 import { ProfileButton } from "../../../Buttons"
-import ProfilePicture from "../../../ProfilePicture/ProfilePicture"
+import ProfilePicture from "../../../UserPicture/UserPicture"
 
 interface IPropTypes {
   profilePicture: StaticImageData

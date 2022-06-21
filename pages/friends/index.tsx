@@ -6,7 +6,7 @@ import FriendsCardRequest from "../../components/Cards/FriendsCards/FriendsCardR
 import FriendsCardExisting from "../../components/Cards/FriendsCards/FriendsCardExisting/FriendsCardExisting"
 import { linksArray } from "../../data/linksArray"
 import { contacts } from "../../data/contacts"
-import ProfilePicture from "../../components/ProfilePicture/ProfilePicture"
+import ProfilePicture from "../../components/UserPicture/UserPicture"
 
 const FriendsPage = () => {
   return (

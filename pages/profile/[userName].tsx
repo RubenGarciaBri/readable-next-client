@@ -1,14 +1,9 @@
 import * as React from "react"
 
 import { useRouter } from "next/router"
-
 import { MailIcon, PhoneIcon } from "@heroicons/react/solid"
-
+import { Intro, Posts, Header } from "../../components/Profile"
 import { Topbar } from "../../components/Navigation"
-import profilePic from "../../public/img/sample-profile.jpeg"
-import bgSamplePic from "../../public/img/bg-sample.jpg"
-import { ProfileHeader } from "../../components/ProfileHeader"
-import { ProfileMainCard } from "../../components/Cards"
 
 const ProfilePage = () => {
   const router = useRouter()
@@ -38,13 +33,7 @@ const ProfilePage = () => {
       <Topbar />
       <div className="main-container">
         <div>
-          <div>
-            <img
-              className="object-cover w-full h-32 rounded-b-lg lg:h-48"
-              src={profile.backgroundImage}
-              alt=""
-            />
-          </div>
+          <Header backgroundImage={profile.backgroundImage} />
           <div className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
             <div className="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
               <div className="flex">
@@ -91,40 +80,11 @@ const ProfilePage = () => {
             </div>
           </div>
         </div>
-
-        {/* <ProfileHeader image={bgSamplePic} /> */}
-
-        {/* <div className="relative -top-24">
-          <div className="flex justify-center">
-            <ProfileMainCard
-              profilePic={profilePic}
-              name={"Ruben"}
-              friendsNumber={84}
-              location="London, UK"
-            />
-          </div>
-          <div>
-            <div className="flex mt-8 gap-x-8">
-              <div className="w-1/4">
-                <div className="p-8 mb-8 bg-white rounded-xl drop-shadow-lg">
-                  <span className="block mb-2 font-semibold">Bio</span>
-                  <p>
-                    React Developer based in London, UK. Passionate about
-                    technology and entrepreneurship.
-                  </p>
-                </div>
-                <div className="p-8 bg-white rounded-xl drop-shadow-lg">
-                  <span className="block mb-2 font-semibold">Friends</span>
-                </div>
-              </div>
-              <div className="w-3/4">
-                <div className="p-8 bg-white rounded-xl drop-shadow-lg">
-                  <span className="block mb-2 font-semibold">Posts</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
+        {/* Main Profile Content */}
+        <div className="grid grid-cols-12 gap-8 mt-6">
+          <Intro />
+          <Posts />
+        </div>
       </div>
     </div>
   )

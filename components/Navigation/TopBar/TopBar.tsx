@@ -3,7 +3,7 @@ import React from "react"
 import profilePic from "../../../public/img/sample-profile.jpeg"
 import Link from "next/link"
 import { FaSearch } from "react-icons/fa"
-import { ProfilePicture } from "../../ProfilePicture"
+import { UserPicture } from "../../UserPicture"
 import { NotificationsButton } from "../../Buttons"
 import { LogoutButton } from "../../Buttons"
 
@@ -28,7 +28,7 @@ const Topbar = () => {
           </div>
         </div>
         <div className="flex align-items gap-x-4">
-          <ProfilePicture profilePic={profilePic} isOnline />
+          <UserPicture profilePic={profilePic} isOnline />
           <NotificationsButton />
           <LogoutButton />
         </div>
