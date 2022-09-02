@@ -9,7 +9,7 @@ interface IPropTypes {
   isOnline?: boolean
 }
 
-const ProfilePicture = ({ profilePic, isOnline }: IPropTypes) => {
+const UserPicture = ({ profilePic, isOnline }: IPropTypes) => {
   // TODO: Temporary placeholder, remove and use actual username
   const userName = "Ruben Garcia"
 
@@ -28,4 +28,4 @@ const ProfilePicture = ({ profilePic, isOnline }: IPropTypes) => {
   )
 }
 
-export default ProfilePicture
+export default UserPicture

@@ -1,0 +1,3 @@
+export const SET_LIKE = "SET_LIKE"
+export const DELETE_LIKE = "DELETE_LIKE"
+export const STOP_LOADING_LIKES = "STOP_LOADING_LIKES"

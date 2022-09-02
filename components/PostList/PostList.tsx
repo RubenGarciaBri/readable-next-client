@@ -1,21 +1,12 @@
 import * as React from "react"
 
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
 import { Post } from "../../components/Post"
-// Selectors
 import { getAllPostIdsSelector } from "../../redux/posts/selectors"
-// Actions
-import { getPosts } from "../../redux/posts/actions"
 
 const PostList = () => {
-  const dispatch = useDispatch()
-
   const posts = useSelector(getAllPostIdsSelector())
-
-  React.useEffect(() => {
-    dispatch(getPosts())
-  }, [])
 
   return (
     <>

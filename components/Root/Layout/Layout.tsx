@@ -11,14 +11,14 @@ interface IPropTypes {
 }
 
 const Layout = ({ children }: IPropTypes) => {
-  const { userName } = useAuth()
+  const { user } = useAuth()
   return (
     <div className="min-h-screen bg-gray-150">
       <Topbar />
       <div className="px-4 main-container">
         <div className="flex justify-between mt-8 alig-center gap-x-8">
           <div className="flex flex-col w-1/4 gap-8">
-            {userName && <ProfileCard name={userName} />}
+            {user?.userName && <ProfileCard name={user.userName} />}
             <Navbar linksArray={linksArray} />
           </div>
           <div className="w-3/4">{children}</div>

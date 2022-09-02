@@ -17,6 +17,10 @@ const getPostError = (state: AppState) => {
   return state.posts.error
 }
 
+// const getPostsByAuthor = (state: AppState, ) => {
+
+// }
+
 export const getAllPostIdsSelector = () =>
   createSelector(
     (state: AppState) => getAllPostIds(state),
@@ -39,4 +43,10 @@ export const getPostErrorSelector = () =>
   createSelector(
     (state: AppState) => getPostError(state),
     error => error
+  )
+
+export const getPostsByAuthorSelector = (author: string) =>
+  createSelector(
+    (state: AppState) => getPostLoading(state),
+    loading => loading
   )

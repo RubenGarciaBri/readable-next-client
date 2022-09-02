@@ -1,5 +1,5 @@
 import * as React from "react"
-import isBrowser from "../helpers/isBrowser"
+import isBrowser from "../../helpers/isBrowser/isBrowser"
 
 function useLocalStorage(key: any, initialValue: any) {
   // State to store our value

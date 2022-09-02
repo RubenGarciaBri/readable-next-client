@@ -5,7 +5,7 @@ import { isPast } from "date-fns"
 import axios from "axios"
 import { useRouter } from "next/router"
 
-import useLocalStorage from "../utils/hooks/useLocalStorage"
+import useLocalStorage from "../utils/hooks/useLocalStorage/useLocalStorage"
 import Login from "../components/Login/Login"
 import Spinner from "../components/Spinner/Spinner"
 
@@ -22,7 +22,7 @@ export type LogInData = {
 
 interface AuthContextProps {
   accessToken: string
-  userName: string
+  user: any
   signUp: ({ email, password, userName }: SignUpData) => void
   logIn: () => void
   logOut: () => void
@@ -37,7 +37,7 @@ const AuthProvider = ({ children, ...props }: any) => {
     "access_token",
     undefined
   )
-  const [userName, setUserName] = useLocalStorage("user", undefined)
+  const [user, setUser] = useLocalStorage("user", undefined)
   const [error, setError] = React.useState<string | undefined>(undefined)
 
   const router = useRouter()
@@ -68,7 +68,10 @@ const AuthProvider = ({ children, ...props }: any) => {
       .post("/api/signup", { email, password, userName })
       .then(res => {
         setAccessToken(res.data.idToken)
-        setUserName(res.data.userName)
+        setUser(res.data.data)
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${res.data.idToken}`
       })
       .catch(err => {
         console.error(err)
@@ -86,7 +89,10 @@ const AuthProvider = ({ children, ...props }: any) => {
       .post("/api/login", { email, password })
       .then(res => {
         setAccessToken(res.data.idToken)
-        setUserName(res.data.userName)
+        setUser(res.data.data)
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${res.data.idToken}`
       })
       .catch(err => {
         console.error(err)
@@ -109,15 +115,16 @@ const AuthProvider = ({ children, ...props }: any) => {
     )
   }
 
-  if (!accessToken) {
-    return (
-      <Login logIn={logIn} signUp={signUp} error={error} setError={setError} />
-    )
-  }
+  // TODO: Uncomment later or add environment variable for development
+  // if (!accessToken) {
+  //   return (
+  //     <Login logIn={logIn} signUp={signUp} error={error} setError={setError} />
+  //   )
+  // }
 
   return (
     <AuthContext.Provider
-      value={{ userName, accessToken, error, signUp, logIn, logOut }}
+      value={{ user, accessToken, error, signUp, logIn, logOut }}
       {...props}
     >
       {children}

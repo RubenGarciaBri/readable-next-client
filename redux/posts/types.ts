@@ -1,2 +1,6 @@
 export const SET_POST = "SET_POST"
 export const STOP_LOADING_POSTS = "STOP_LOADING_POSTS"
+export const LIKE_POST = "LIKE_POST"
+export const UNLIKE_POST = "UNLIKE_POST"
+export const COMMENT_POST = "COMMENT_POST"
+export const DELETE_POST = "DELETE_POST"
