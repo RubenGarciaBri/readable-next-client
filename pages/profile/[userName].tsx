@@ -46,7 +46,7 @@ const ProfilePage = () => {
               <div className="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                 <div className="flex-1 min-w-0 mt-6 sm:hidden md:block">
                   <h1 className="text-2xl font-bold text-gray-900 truncate">
-                    {profile.name}
+                    {userName}
                   </h1>
                 </div>
                 <div className="flex flex-col mt-6 space-y-3 justify-stretch sm:flex-row sm:space-y-0 sm:space-x-4">

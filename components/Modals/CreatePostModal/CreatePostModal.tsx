@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux"
 import { FaTimes } from "react-icons/fa"
 import { modalButtons } from "../../../data/modalButtons"
 import profilePic from "../../../public/img/sample-profile.jpeg"
-import { useOnClickOutside } from "../../../utils/hooks/useOnClickOutside"
+import { useOnClickOutside } from "../../../utils"
 import Image from "next/image"
 import { addPost } from "../../../redux/posts/actions"
 

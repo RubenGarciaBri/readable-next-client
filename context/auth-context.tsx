@@ -5,7 +5,7 @@ import { isPast } from "date-fns"
 import axios from "axios"
 import { useRouter } from "next/router"
 
-import useLocalStorage from "../utils/hooks/useLocalStorage"
+import useLocalStorage from "../utils/hooks/useLocalStorage/useLocalStorage"
 import Login from "../components/Login/Login"
 import Spinner from "../components/Spinner/Spinner"
 
@@ -41,8 +41,6 @@ const AuthProvider = ({ children, ...props }: any) => {
   const [error, setError] = React.useState<string | undefined>(undefined)
 
   const router = useRouter()
-
-  const offline = process.env.NEXT_PUBLIC_OFFLINE
 
   React.useEffect(() => {
     if (accessToken) {
@@ -117,11 +115,12 @@ const AuthProvider = ({ children, ...props }: any) => {
     )
   }
 
-  if (!offline && !accessToken) {
-    return (
-      <Login logIn={logIn} signUp={signUp} error={error} setError={setError} />
-    )
-  }
+  // TODO: Uncomment later or add environment variable for development
+  // if (!accessToken) {
+  //   return (
+  //     <Login logIn={logIn} signUp={signUp} error={error} setError={setError} />
+  //   )
+  // }
 
   return (
     <AuthContext.Provider

@@ -4,7 +4,7 @@ import { SET_POST, STOP_LOADING_POSTS, LIKE_POST, UNLIKE_POST } from "./types"
 import { SET_LIKE, DELETE_LIKE } from "../likes/types"
 import { samplePosts } from "../../data/samplePosts"
 
-const offline = process.env.NEXT_PUBLIC_OFFLINE
+const offline = true
 
 export const getPosts = () => (dispatch: any) => {
   if (!offline) {
